@@ -1,9 +1,9 @@
 import React from 'react';
-import ItemsList from '../components/ItemsList';
+import Items from '../components/ItemsList';
 
 const Home = () => (
   <div>
-    <ItemsList />
+    <Items />
   </div>
 );
 

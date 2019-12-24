@@ -1,14 +1,20 @@
 import Link from 'next/link';
 import { Mutation } from 'react-apollo';
-// import NavStyles from './styles/NavStyles';
+import NavStyles from './styles/NavStyles';
 
+// TODO: Get me from a Query to DB from logged in user
 const me = null;
 
 const Nav = () => (
-  <div data-test="nav">
+  <NavStyles data-test="nav">
     <Link href="/items">
       <a>Shop</a>
     </Link>
+    {!me && (
+      <Link href="/signin">
+        <a>Sign in</a>
+      </Link>
+    )}
     {me && (
       <>
         <Link href="/sell">
@@ -22,7 +28,7 @@ const Nav = () => (
         </Link>
       </>
     )}
-  </div>
+  </NavStyles>
 );
 
 export default Nav;
