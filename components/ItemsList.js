@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import ItemsListStyles from './styles/ItemsListStyled';
+import Item from './Item';
 
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
@@ -21,11 +23,11 @@ const Items = props => (
       if (loading) return <h1>Loading...</h1>;
       if (error) return <h1>Error! {error.message}</h1>;
       return (
-        <ul>
+        <ItemsListStyles>
           {data.items.map(item => (
-            <li>{item.title}</li>
+            <Item key={item.id} item={item} />
           ))}
-        </ul>
+        </ItemsListStyles>
       );
     }}
   </Query>
