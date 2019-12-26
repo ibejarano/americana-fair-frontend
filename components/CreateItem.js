@@ -2,14 +2,21 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import getConfig from 'next/config';
-import { uriUpload } from '../config';
+import Router from 'next/router';
+import Form from './styles/Form';
 
 const { publicRuntimeConfig } = getConfig();
 const { uriUploadCloudinary } = publicRuntimeConfig;
 
 const CREATE_ITEM_MUTATION = gql`
-  mutation CREATE_ITEM_MUTATION($title: String!, $description: String!, $image: String!, $largeImage: String!) {
-    createItem(title: $title, description: $description, image: $image, largeImage: $largeImage) {
+  mutation CREATE_ITEM_MUTATION(
+    $title: String!
+    $description: String!
+    $image: String!
+    $largeImage: String!
+    $price: Int!
+  ) {
+    createItem(title: $title, description: $description, image: $image, largeImage: $largeImage, price: $price) {
       id
       title
     }
@@ -50,17 +57,15 @@ class CreateItem extends React.Component {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={{ title, price, image, description, largeImage }}>
         {(createItem, { loading, error }) => (
-          <form
+          <Form
             data-test="form"
             onSubmit={async e => {
               e.preventDefault();
-              console.log('Previo a await', this.state);
               const res = await createItem();
-              console.log(res);
-              // Router.push({
-              //   pathname: '/item',
-              //   query: { id: res.data.createItem.id },
-              // });
+              Router.push({
+                pathname: '/item',
+                query: { id: res.data.createItem.id },
+              });
             }}
           >
             {/* <Error error={error} /> */}
@@ -117,7 +122,7 @@ class CreateItem extends React.Component {
               </label>
               <button type="submit">Submit</button>
             </fieldset>
-          </form>
+          </Form>
         )}
       </Mutation>
     );
