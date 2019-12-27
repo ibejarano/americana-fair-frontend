@@ -63,16 +63,16 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>Americana Fair</a>
+          <a>E-Feria</a>
         </Link>
       </Logo>
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search</p>
+      <p>Buscar</p>
     </div>
     <div>
-      <p>Cart</p>
+      <p>Carrito</p>
     </div>
   </StyledHeader>
 );

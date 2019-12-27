@@ -8,23 +8,23 @@ const me = null;
 const Nav = () => (
   <NavStyles data-test="nav">
     <Link href="/items">
-      <a>Shop</a>
+      <a>Comprar</a>
     </Link>
     {!me && (
       <Link href="/signin">
-        <a>Sign in</a>
+        <a>Ingresar</a>
       </Link>
     )}
     {me && (
       <>
         <Link href="/sell">
-          <a>Sell</a>
+          <a>Vender</a>
         </Link>
         <Link href="/orders">
-          <a>Orders</a>
+          <a>Ordenes</a>
         </Link>
         <Link href="/me">
-          <a>Account</a>
+          <a>Cuenta</a>
         </Link>
       </>
     )}

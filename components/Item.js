@@ -11,9 +11,9 @@ export default function Item({ item }) {
         <a href="/">{title}</a>
       </p>
       <div className="buttonList">
-        <p>Edit</p>
-        <p>Add to Cart</p>
-        <p>Delete</p>
+        <p>Editar</p>
+        <p>Agregar al carrito</p>
+        <p>Borrar</p>
       </div>
     </ItemStyles>
   );
