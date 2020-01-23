@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import gql from 'graphql-tag';
 import {Mutation} from 'react-apollo';
+import {CURRENT_USER_QUERY} from './User';
 
 const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION($email: String!, $password: String!) {
@@ -27,13 +28,13 @@ export default function Login() {
       variables={loginData}
       // refetchQueries={[{query: CURRENT_USER_QUERY}]}>
     >
-      {(signup, {error, loading}) => (
+      {(login, {error, loading}) => (
         <form
           method="post"
           onSubmit={async e => {
             e.preventDefault();
-                  const res = await signup();
-                  console.log(res);
+            const res = await login();
+            console.log(res);
           }}>
           <fieldset disabled={loading} aria-busy={loading}>
             <h2>Sign in into your account</h2>
