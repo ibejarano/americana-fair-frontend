@@ -35,7 +35,6 @@ const Signup = () => {
       mutation={SIGNUP_MUTATION}
       variables={signupData}
       refetchQueries={[{query: CURRENT_USER_QUERY}]}>
-      >
       {(signup, {error, loading}) => (
         <form
           method="post"
@@ -82,6 +81,6 @@ const Signup = () => {
       )}
     </Mutation>
   );
-}
+};
 export default Signup;
 export {SIGNUP_MUTATION};
