@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import gql from 'graphql-tag';
 import {Mutation} from 'react-apollo';
 import {CURRENT_USER_QUERY} from './User';
+import Form from './styles/Form';
 
 const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION($email: String!, $password: String!) {
@@ -29,8 +30,7 @@ export default function Login() {
       // refetchQueries={[{query: CURRENT_USER_QUERY}]}>
     >
       {(login, {error, loading}) => (
-        <form
-          method="post"
+        <Form
           onSubmit={async e => {
             e.preventDefault();
             const res = await login();
@@ -58,9 +58,11 @@ export default function Login() {
                 onChange={saveToState}
               />
             </label>
-            <button type="submit">Sign In</button>
+            <button type="submit" disabled={loading}>
+              Sign In
+            </button>
           </fieldset>
-        </form>
+        </Form>
       )}
     </Mutation>
   );
