@@ -1,22 +1,22 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import Router from 'next/router';
-// import NProgress from 'nprogress';
+import NProgress from 'nprogress';
 import Nav from './Nav';
-// import Cart from './Cart';
+import Cart from './Cart';
 // import Search from './Search';
 
-// Router.onRouteChangeStart = () => {
-//   NProgress.start();
-// };
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+};
 
-// Router.onRouteChangeComplete = () => {
-//   NProgress.done();
-// };
+Router.onRouteChangeComplete = () => {
+  NProgress.done();
+};
 
-// Router.onRouteChangeError = () => {
-//   NProgress.done();
-// };
+Router.onRouteChangeError = () => {
+  NProgress.done();
+};
 
 const Logo = styled.h1`
   font-size: 3rem;
@@ -72,7 +72,7 @@ const Header = () => (
       <p>Buscar</p>
     </div>
     <div>
-      <p>Carrito</p>
+      <Cart />
     </div>
   </StyledHeader>
 );
