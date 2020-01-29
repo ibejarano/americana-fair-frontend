@@ -1,22 +1,20 @@
 import React from 'react';
-import ItemStyles from './styles/ItemStyle';
 import Link from 'next/link';
+import ItemStyles from './styles/ItemStyle';
 
 export default function Item({item}) {
-  const {title, id, image} = item;
-  const puppy = 'puppy.jpg';
+  const {title, id, image, description} = item;
   return (
     <ItemStyles>
-      <img src={puppy} alt={title} />
-      <p>
+      <img src={image} alt={title} />
+      <div className="item-text">
         <Link href={{pathname: '/item', query: {id}}}>
           <a>{title}</a>
         </Link>
-      </p>
+        <p>{description}</p>
+      </div>
       <div className="buttonList">
-        <p>Editar</p>
         <p>Agregar al carrito</p>
-        <p>Borrar</p>
       </div>
     </ItemStyles>
   );
