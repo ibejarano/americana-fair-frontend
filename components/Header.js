@@ -71,9 +71,7 @@ const Header = () => (
     <div className="sub-bar">
       <p>Buscar</p>
     </div>
-    <div>
-      <Cart />
-    </div>
+    <Cart />
   </StyledHeader>
 );
 
